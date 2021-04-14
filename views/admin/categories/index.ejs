@@ -22,9 +22,9 @@
 					<th><%= category.title %></th>
 					<th><%= category.slug %></th>
 					<th>
-						<button class="btn btn-warning">Edit</button>
+						<a href="/admin/categories/edit/<%= category.id %>" class="btn btn-warning">Edit</a>
 
-						<form method="POST" action="/categories/delete" style="display: inline"> 
+						<form method="POST" action="/categories/delete" style="display: inline" onsubmit="comfirmDeletion(event, this)"> 
 							<input type="hidden" name="id" value="<%= category.id %>">
 							<button class="btn btn-danger">Delete</button>
 						</form>
@@ -36,3 +36,13 @@
 </div>
 
 <%- include ('../../partials/footer') %>
+
+<script type="text/javascript">
+	const comfirmDeletion = (event, form) => {
+		event.preventDefault();
+		const decision = confirm('Do you really want to delete this category?');
+		if(decision){
+			form.submit()
+		}
+	}
+</script>
