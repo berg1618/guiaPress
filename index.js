@@ -51,7 +51,7 @@ app.get('/:slug', (req, res) => {
 	}).then(article => {
 		if(article != undefined){
 			Category.findAll().then(categories => {
-				res.render('article', {articles: articles, categories: categories});
+				res.render('article', {article: article, categories: categories});
 			});
 		} else {
 			res.redirect('/');
@@ -66,7 +66,8 @@ app.get('/category/:slug', (req, res) => {
 	Category.findOne({
 		where: {
 			slug: slug
-		}
+		},
+		include: [{model: Article}]
 	}).then(category => {
 		if(category != undefined){
 
