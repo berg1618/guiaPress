@@ -17,7 +17,9 @@
   },
   "homepage": "https://github.com/berg1618/guiaPress#readme",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "ejs": "^3.1.6",
+    "ejs-lint": "^1.2.0",
     "express": "^4.17.1",
     "mysql2": "^2.2.5",
     "sequelize": "^6.6.2",
