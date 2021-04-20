@@ -10,7 +10,7 @@ router.get('/admin/users', adminAuth.authenticate, (req, res) => {
 	});
 });
 
-router.get('/admin/users/create', adminAuth.authenticate, (req, res) => {
+router.get('/users/create', (req, res) => {
 	res.render('admin/users/create');
 });
 
